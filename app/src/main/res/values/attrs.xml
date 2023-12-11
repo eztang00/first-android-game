@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GamePreviewView">
+        <attr name="gameLevel" format="integer" />
+    </declare-styleable>
+
+</resources>

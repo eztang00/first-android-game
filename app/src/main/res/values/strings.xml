@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">First Android Game</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Menu</string>
+    <string name="nav_header_subtitle">Ripple Golf</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="strokes_and_par_info">Score: %1$d\nStrokes: %2$d/%3$d</string>
+    <string name="score_info">Score: %1$d</string>
+    <string name="action_restart">Restart</string>
+
+    <string name="home_header">Ripple Golf</string>
+
+    <string name="menu_home">Main Menu</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_game">Ripple Golf</string>
+    <string name="incomplete_level_text">Incomplete ✗</string>
+    <string name="complete_level_text">%1$d strokes</string>
+    <string name="complete_level_text_perfect">%1$d strokes ✓</string>
+    <string name="complete_level_text_perfect_1_stroke">1 stroke ✓</string>
+    <string name="level_preview_title">"Level %1$d"</string>
+    <string name="par_text">(Par %1$d)</string>
+    <!--    ✗✓ -->
+
+</resources>
