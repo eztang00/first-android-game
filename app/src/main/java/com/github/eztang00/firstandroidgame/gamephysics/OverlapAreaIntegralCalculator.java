@@ -1,6 +1,17 @@
-package com.github.eztang00.firstandroidgame.ui.game;
+package com.github.eztang00.firstandroidgame.gamephysics;
 
-class OverlapAreaIntegralCalculator implements OverlapHandler {
+/**
+ * For each line segment or arc given to the OverlapAreaIntegralCalculator,
+ * the OverlapAreaIntegralCalculator adds its contribution to the area
+ * as well as various area integrals.
+ *
+ * This uses the <a href="https://en.wikipedia.org/wiki/Shoelace_formula">shoestring formula</a>.
+ *
+ * For a closed loop of line segments and arcs, the final area is the
+ * total area. The center of mass and moment of inertia can be calculated
+ * from the other area integrals.
+ */
+class OverlapAreaIntegralCalculator implements OverlapCalculator {
     public final GameShape firstShape;
     public final GameShape otherShape;
     double overlapArea = 0;

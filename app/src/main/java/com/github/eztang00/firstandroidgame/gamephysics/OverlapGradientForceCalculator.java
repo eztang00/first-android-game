@@ -1,6 +1,33 @@
-package com.github.eztang00.firstandroidgame.ui.game;
+package com.github.eztang00.firstandroidgame.gamephysics;
 
-class OverlapGradientForceCalculator implements OverlapHandler {
+/**
+ * Similar to the OverlapAreaIntegralCalculator, but calculates the force/direction
+ * two overlapping objects should push against each other with.
+ *
+ * What direction should the two overlapping objects push against each other?
+ * They should push against each other in the direction that decreases the
+ * overlap area the fastest.
+ *
+ * This means if the overlap area is a function of the position of one shape
+ * (relative to the other), the gradient of this function tells us the direction
+ * to push the shapes to minimize their overlap.
+ *
+ * And the gradient of this function is surprisingly simple: it's just the vector
+ * from one end of the overlap to the other, turned 90 degrees.
+ *
+ * So each line segment or arc given to the OverlapGradientForceCalculator,
+ * the OverlapGradientForceCalculator adds its contribution to the vector from
+ * one end of the overlap to the other, turned 90 degrees.
+ *
+ * This sort of resembles the <a href="https://en.wikipedia.org/wiki/Shoelace_formula">shoestring formula</a>.
+ *
+ * It also calculates the area (just like OverlapAreaIntegralCalculator) and
+ * the perimeter, in order to estimate the depth of the overlap.
+ * This can be used to give deeper overlaps a stronger force, discouraging
+ * objects from being shoved deep into each other by strong forces.
+ *
+ */
+class OverlapGradientForceCalculator implements OverlapCalculator {
     public final GameShape firstShape;
     public final GameShape otherShape;
     double overlapGradientForceX = 0;
@@ -29,7 +56,7 @@ class OverlapGradientForceCalculator implements OverlapHandler {
         }
         double overlapAreaContribution = (startX * endY - startY * endX) / 2.0;
         this.overlapArea += windingFactor * overlapAreaContribution;
-        this.overlapPerimeter += Math.sqrt(forceX*forceX + forceY*forceY);
+        this.overlapPerimeter += windingFactor * Math.sqrt(forceX*forceX + forceY*forceY);
     }
 
     public void addArcToOverlap(double radiusOfCurvature, double arcCenterX, double arcCenterY, double arcStartX, double arcStartY, double arcEndX, double arcEndY, double arcAngleChange, int windingFactor, boolean arcIsFirstShape, GamePolyarcgon.PolyarcgonPointCache nextPoint, boolean isRealIntersection) {
@@ -48,7 +75,7 @@ class OverlapGradientForceCalculator implements OverlapHandler {
         double overlapAreaContribution2 = (arcCenterX * arcEndY - arcCenterY * arcEndX) / 2.0;
         double overlapAreaContributionWedge = arcAngleChange * radiusOfCurvature * radiusOfCurvature / 2.0;
         this.overlapArea += windingFactor * (overlapAreaContribution1 + overlapAreaContribution2 + overlapAreaContributionWedge);
-        this.overlapPerimeter += radiusOfCurvature*Math.abs(arcAngleChange);
+        this.overlapPerimeter += windingFactor * radiusOfCurvature*Math.abs(arcAngleChange);
     }
 
     public boolean isAlmostZero() {

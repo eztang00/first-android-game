@@ -3,6 +3,12 @@ package com.github.eztang00.firstandroidgame.ui.game;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic.RippleGolfGame;
+
+/**
+ * Mostly just stores a reference to the game instance, in a way
+ * compatible with view models
+ */
 public class GameViewModel extends ViewModel {
 
     private final MutableLiveData<RippleGolfGame> gameLiveData = new MutableLiveData<>();

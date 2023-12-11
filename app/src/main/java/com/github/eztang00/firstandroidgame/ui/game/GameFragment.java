@@ -12,7 +12,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.github.eztang00.firstandroidgame.databinding.FragmentGameBinding;
+import com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic.RippleGolfGame;
 
+/**
+ * This fragment shows the GameView and automatically starts the game when displayed
+ */
 public class GameFragment extends Fragment {
 
 private FragmentGameBinding binding;

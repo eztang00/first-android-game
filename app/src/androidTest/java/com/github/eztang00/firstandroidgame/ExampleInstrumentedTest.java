@@ -1,4 +1,4 @@
-package com.example.firstandroidgame;
+package com.github.eztang00.firstandroidgame;
 
 import android.content.Context;
 

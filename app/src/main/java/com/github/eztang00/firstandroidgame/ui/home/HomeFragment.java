@@ -18,12 +18,15 @@ import com.github.eztang00.firstandroidgame.GameProgress;
 import com.github.eztang00.firstandroidgame.R;
 import com.github.eztang00.firstandroidgame.databinding.FragmentHomeBinding;
 import com.github.eztang00.firstandroidgame.databinding.LevelPreviewWithTitleAndInfoBinding;
-import com.github.eztang00.firstandroidgame.ui.game.RippleGolfGame;
-import com.github.eztang00.firstandroidgame.ui.game.RippleGolfGameLevel;
+import com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic.RippleGolfGame;
+import com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic.RippleGolfGameLevel;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Currently just shows a list of levels and lets the user click them
+ */
 public class HomeFragment extends Fragment {
 
 private FragmentHomeBinding binding;

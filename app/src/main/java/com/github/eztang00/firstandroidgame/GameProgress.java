@@ -8,12 +8,16 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
-import com.github.eztang00.firstandroidgame.ui.game.RippleGolfGame;
+import com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic.RippleGolfGame;
 
-import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Stores information about progress made in the game.
+ *
+ * This needs to be converted into a SerializableGameProgress before being saved
+ * because it is not serializable (the ObservableArrayMap cannot be made serializable).
+ */
 public class GameProgress {
     public final ObservableArrayMap<Integer, Integer> levelHighScores;
     private final MutableLiveData<GameProgress> observerHandler = new MutableLiveData<>(this);
@@ -48,15 +52,5 @@ public class GameProgress {
             score += levelAndHighScore.getValue() - RippleGolfGame.getPar(levelAndHighScore.getKey());
         }
         return score;
-    }
-}
-class SerializableGameProgress implements Serializable {
-    public final HashMap<Integer, Integer> levelHighScores;
-    public SerializableGameProgress() {
-        levelHighScores = new HashMap<>();
-    }
-    public SerializableGameProgress(GameProgress gameProgress) {
-        this();
-        levelHighScores.putAll(gameProgress.levelHighScores);
     }
 }

@@ -1,11 +1,10 @@
-package com.github.eztang00.firstandroidgame.ui.game;
+package com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic;
 
 import android.content.Context;
 
-interface GameLevel <T extends Game> {
+import com.github.eztang00.firstandroidgame.gamelogic.GameLevel;
+import com.github.eztang00.firstandroidgame.gamelogic.GameLevelWon;
 
-    void initiateLevel(Context context, T game, int level);
-}
 public interface RippleGolfGameLevel extends GameLevel<RippleGolfGame> {
 
     void initiateLevel(Context context, RippleGolfGame game, int levelNumberToDisplay);
@@ -37,7 +36,8 @@ public interface RippleGolfGameLevel extends GameLevel<RippleGolfGame> {
             case 8:
                 return RippleGolfGameLevel8.getInstance();
             case 9:
-                return RippleGolfGameLevel8Generator.getInstance();
+//                return RippleGolfGameLevel8Generator.getInstance();
+//                return RippleGolfGameLevelTest.getInstance();
             default:
                 return GameLevelWon.getInstance();
 //                throw new IllegalArgumentException("level doesn't exist: " + level);
@@ -46,6 +46,3 @@ public interface RippleGolfGameLevel extends GameLevel<RippleGolfGame> {
 
 }
 
-interface RippleGolfGameLevelWithSpeedFactor extends RippleGolfGameLevel {
-    void multiplySpeedFactor(double speedFactor);
-}

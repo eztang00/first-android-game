@@ -1,4 +1,4 @@
-package com.github.eztang00.firstandroidgame.ui.game;
+package com.github.eztang00.firstandroidgame.gamelogic;
 
 public interface GameListener {
 

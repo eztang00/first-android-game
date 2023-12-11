@@ -19,18 +19,22 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.github.eztang00.firstandroidgame.databinding.ActivityMainBinding;
-import com.github.eztang00.firstandroidgame.ui.game.RippleGolfGame;
-import com.github.eztang00.firstandroidgame.ui.game.GameListener;
+import com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic.RippleGolfGame;
+import com.github.eztang00.firstandroidgame.gamelogic.GameListener;
 import com.github.eztang00.firstandroidgame.ui.game.GameViewModel;
 import com.github.eztang00.firstandroidgame.ui.home.HomeViewModel;
 import com.google.android.material.navigation.NavigationView;
 
+/**
+ * This is the only activity and contains the drawer layout with navigation view,
+ * that contains the whole game
+ */
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Menu menuInToolbar;
     private int preferredOrientation = Configuration.ORIENTATION_UNDEFINED;
-private ActivityMainBinding binding;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

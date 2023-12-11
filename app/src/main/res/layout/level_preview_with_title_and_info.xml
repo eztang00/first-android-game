@@ -8,7 +8,7 @@
     android:layout_height="wrap_content">
 
 
-    <com.github.eztang00.firstandroidgame.ui.game.GamePreviewView
+    <com.github.eztang00.firstandroidgame.gamelogic.GamePreviewView
         android:id="@+id/preview_level_picture"
         android:layout_width="match_parent"
         android:layout_height="0dp"

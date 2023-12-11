@@ -1,4 +1,4 @@
-package com.github.eztang00.firstandroidgame.ui.game;
+package com.github.eztang00.firstandroidgame.gamelogic;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,7 +8,12 @@ import android.util.Log;
 import android.view.View;
 
 import com.github.eztang00.firstandroidgame.R;
+import com.github.eztang00.firstandroidgame.gamelogic.ripplegolflogic.RippleGolfGame;
 
+/**
+ * A View for showing a snapshot of a game level, without actually
+ * running the game like GameView does
+ */
 public class GamePreviewView extends View {
 
     public RippleGolfGame game;

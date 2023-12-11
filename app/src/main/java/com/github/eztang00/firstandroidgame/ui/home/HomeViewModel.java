@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel;
 
 import com.github.eztang00.firstandroidgame.GameProgress;
 
+/**
+ * Stores a copy of the game progress, plus lets the user select a level
+ */
 public class HomeViewModel extends ViewModel {
 
     private final GameProgress progress = new GameProgress();

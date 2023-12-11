@@ -16,6 +16,9 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 
+/**
+ * A collection of static methods used by the game to save progress and load progress/files.
+ */
 public class SaveAndLoad {
 
     public static <T> T gsonLoadRawResource(Context context, int id, Type type) {
